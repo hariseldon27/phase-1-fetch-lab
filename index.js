@@ -1,5 +1,21 @@
+// In index.js, there is an empty function, fetchBooks(), that is called when index.html is loaded. To pass this lab, this function should include a fetch request to the Game of Thrones API ('https://anapioficeandfire.com/api/books' (Links to an external site.)). The returned response should be converted to JSON. Then, it should call the second function, renderBooks(), passing in the JSON-ified data as the argument. To check if you have done this correctly, open up the index.html page of this lab; you should see a list of Game Of Thrones titles on your webpage.
+
+// NOTE: The tests in this lab need to access the fetch() request you will create inside fetchBooks(). In order to give them access, write your solution so that fetchBooks() returns the fetch(). This will not change the behavior of your fetch()¸
+
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
+  // fetch("https://anapioficeandfire.com/api/books")
+  // .then((resp) => resp.json())
+  // .then((data) => data);
+  // renderBooks(data)
+
+  return fetch("https://anapioficeandfire.com/api/books")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (object) {
+      renderBooks(object)
+    });
   
 }
 
@@ -13,5 +29,5 @@ function renderBooks(books) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  fetchBooks();
+  fetchBooks;
 });
